@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-people"></i> <%= title %></h2>
+    <a href="/suppliers/create" class="btn btn-primary">
+        <i class="bi bi-plus"></i> Add New Supplier
+    </a>
+</div>
+
+<% if (suppliers.length === 0) { %>
+    <div class="alert alert-info text-center">
+        <i class="bi bi-info-circle"></i> No suppliers found. 
+        <a href="/suppliers/create" class="alert-link">Create the first supplier</a>
+    </div>
+<% } else { %>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th><i class="bi bi-building"></i> Supplier Name</th>
+                    <th><i class="bi bi-geo-alt"></i> Address</th>
+                    <th><i class="bi bi-telephone"></i> Phone</th>
+                    <th><i class="bi bi-gear"></i> Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% suppliers.forEach(supplier => { %>
+                    <tr>
+                        <td>
+                            <strong><%= supplier.name %></strong>
+                        </td>
+                        <td>
+                            <small class="text-muted"><%= supplier.address %></small>
+                        </td>
+                        <td>
+                            <span class="badge bg-info"><%= supplier.phone %></span>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="/suppliers/<%= supplier._id %>" class="btn btn-outline-primary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="/suppliers/<%= supplier._id %>/update" class="btn btn-outline-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="/suppliers/<%= supplier._id %>/delete" class="btn btn-outline-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+<% } %>
+
+<%- include('../partials/footer') %>

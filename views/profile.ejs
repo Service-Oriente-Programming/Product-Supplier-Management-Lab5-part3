@@ -1,0 +1,97 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="bi bi-person-circle"></i> User Profile</h4>
+            </div>
+            <div class="card-body">
+                <form action="/auth/profile" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">
+                                    <i class="bi bi-person"></i> Username
+                                </label>
+                                <input type="text" class="form-control" 
+                                       id="username" value="<%= user.username %>" disabled>
+                                <small class="text-muted">Username cannot be changed</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="role" class="form-label">
+                                    <i class="bi bi-shield"></i> Role
+                                </label>
+                                <input type="text" class="form-control" 
+                                       id="role" value="<%= user.role %>" disabled>
+                                <small class="text-muted">Role is assigned by administrator</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            <i class="bi bi-envelope"></i> Email Address *
+                        </label>
+                        <input type="email" class="form-control <%= errors && errors.find(e => e.param === 'email') ? 'is-invalid' : '' %>" 
+                               id="email" name="email" value="<%= user.email %>" 
+                               autocomplete="email" required>
+                        <% if (errors && errors.find(e => e.param === 'email')) { %>
+                            <div class="invalid-feedback">
+                                <%= errors.find(e => e.param === 'email').msg %>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">
+                            <i class="bi bi-telephone"></i> Phone Number *
+                        </label>
+                        <input type="tel" class="form-control <%= errors && errors.find(e => e.param === 'phone') ? 'is-invalid' : '' %>" 
+                               id="phone" name="phone" value="<%= user.phone %>" 
+                               autocomplete="tel" required>
+                        <% if (errors && errors.find(e => e.param === 'phone')) { %>
+                            <div class="invalid-feedback">
+                                <%= errors.find(e => e.param === 'phone').msg %>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="createdAt" class="form-label">
+                                    <i class="bi bi-calendar-plus"></i> Member Since
+                                </label>
+                                <input type="text" class="form-control" 
+                                       id="createdAt" value="<%= new Date(user.createdAt).toLocaleDateString() %>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="lastLogin" class="form-label">
+                                    <i class="bi bi-clock"></i> Last Login
+                                </label>
+                                <input type="text" class="form-control" 
+                                       id="lastLogin" value="<%= user.lastLogin ? new Date(user.lastLogin).toLocaleString() : 'Never' %>" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="/" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to Home
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check"></i> Update Profile
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

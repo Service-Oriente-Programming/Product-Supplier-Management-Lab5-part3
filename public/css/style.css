@@ -1,0 +1,238 @@
+/* Custom styles for Product Supplier Management with Authentication */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Jumbotron */
+.jumbotron {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+}
+
+/* Tables */
+.table th {
+    border-top: none;
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+/* Badges */
+.badge {
+    font-size: 0.875em;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+    border-radius: 0.25rem;
+}
+
+/* Forms */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Alerts */
+.alert {
+    border: none;
+    border-radius: 0.5rem;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Authentication specific styles */
+.auth-card {
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.auth-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
+    color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Search functionality */
+.search-container {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.search-input {
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* User profile styles */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Status indicators */
+.status-active {
+    color: var(--success-color);
+}
+
+.status-inactive {
+    color: var(--secondary-color);
+}
+
+/* Price formatting */
+.price {
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+/* Quantity indicators */
+.quantity-low {
+    color: var(--warning-color);
+}
+
+.quantity-out {
+    color: var(--danger-color);
+}
+
+/* Icon spacing */
+.bi {
+    margin-right: 0.25rem;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+    
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        margin-bottom: 0.25rem;
+    }
+    
+    .auth-card {
+        margin: 1rem;
+    }
+}
+
+/* Flash message animations */
+.alert {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search results highlighting */
+.search-highlight {
+    background-color: #fff3cd;
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.2rem;
+}
+
+/* Admin specific styles */
+.admin-only {
+    border-left: 4px solid var(--warning-color);
+    background-color: #fff8e1;
+}
+
+.user-role-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}

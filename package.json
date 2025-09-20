@@ -1,0 +1,50 @@
+{
+  "name": "lab5-part3-product-supplier-auth",
+  "version": "1.0.0",
+  "description": "Lab 5 Part 3 - Product Supplier Management with User Authentication",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "run": "node run-app.js",
+    "check": "node check-app.js",
+    "seed": "node seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "mongoose",
+    "mvc",
+    "crud",
+    "express",
+    "ejs",
+    "bootstrap",
+    "authentication",
+    "session",
+    "cookies"
+  ],
+  "author": "Tran Thi Thanh Thao",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "ejs": "^3.1.9",
+    "dotenv": "^16.3.1",
+    "method-override": "^3.0.0",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "express-session": "^1.17.3",
+    "connect-mongo": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "express-flash": "^0.0.2",
+    "connect-flash": "^0.1.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
